@@ -1,14 +1,12 @@
 package services;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Primary;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 @Component
-@Qualifier("sms")
-public class MessageService implements NotificationService {
+@Qualifier("email")
+public class EmailService implements NotificationService {
     private String text = "";
 
     //Геттер
@@ -22,7 +20,7 @@ public class MessageService implements NotificationService {
     }
 
     //Конструктор без параметров
-    public MessageService(String text) {
+    public EmailService(String text) {
         this.setMessage(text);
     }
 
@@ -31,5 +29,4 @@ public class MessageService implements NotificationService {
     public void pushNotification() {
         System.out.println(this.getMessage());
     }
-
 }
